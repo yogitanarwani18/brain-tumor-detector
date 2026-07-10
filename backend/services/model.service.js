@@ -9,13 +9,16 @@ export const sendImageToModel = async (file) => {
     contentType: file.mimetype,
   });
 
-  const response = await axios.post(
-    process.env.PYTHON_MODEL_URL,
-    formData,
-    {
-      headers: formData.getHeaders(),
-    }
-  );
+ const response = await axios.post(
+  process.env.PYTHON_MODEL_URL,
+  formData,
+  {
+    headers: formData.getHeaders(),
+    timeout: 180000,
+    maxBodyLength: Infinity,
+    maxContentLength: Infinity
+  }
+);
 
   console.log("RAW PYTHON MODEL RESPONSE:", response.data);
 
