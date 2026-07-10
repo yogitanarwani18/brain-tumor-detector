@@ -22,7 +22,7 @@ python-model/uploads/
 python-model/__pycache__/
 python-model/.ipynb_checkpoints/
 python-model/.env
-
+python-model/deploy-venv/
 # Python generated files
 *.pyc
 *.pyo
