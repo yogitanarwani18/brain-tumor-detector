@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ReportService {
-  private apiUrl = 'http://localhost:5000/api/reports';
+  private apiUrl = 'https://brain-tumor-detector-3-837n.onrender.com/api/reports';
 
   constructor(private http: HttpClient) {}
 
