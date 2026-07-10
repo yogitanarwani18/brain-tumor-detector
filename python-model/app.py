@@ -1,5 +1,9 @@
 import os
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
 import cv2
 import numpy as np
 from flask import Flask, jsonify, request
@@ -19,7 +23,7 @@ IMAGE_SIZE = 128
 print(f"Loading model from: {MODEL_PATH}")
 model = load_model(MODEL_PATH)
 print("Model loaded successfully")
-
+model.trainable = False
 class_labels = [
     "Glioma",
     "Meningioma",
@@ -92,10 +96,7 @@ def predict():
 
         processed_image = preprocess_mri_image(file)
 
-        prediction = model.predict(
-            processed_image,
-            verbose=0,
-        )
+        prediction = model(processed_image, training=False).numpy()
 
         predicted_index = int(np.argmax(prediction[0]))
         confidence = float(np.max(prediction[0]) * 100)
