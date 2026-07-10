@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-icon">🧠</span>
+    <span>Brain Tumor Detector</span>
+  </div>
+
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/upload" routerLinkActive="active">Upload MRI</a>
+    <a routerLink="/reports" routerLinkActive="active">Reports</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+  </div>
+
+  <a routerLink="/upload" class="nav-btn">Start Detection</a>
+</nav>

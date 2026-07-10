@@ -1,0 +1,41 @@
+# Angular frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.cache/
+frontend/.vscode/
+
+# Node backend
+backend/node_modules/
+backend/uploads/
+backend/temp/
+backend/logs/
+backend/.env
+backend/.env.local
+backend/.env.production
+
+# Python API
+python-model/venv/
+python-model/.venv/
+python-model/temp/
+python-model/uploads/
+python-model/__pycache__/
+python-model/.ipynb_checkpoints/
+python-model/.env
+
+# Python generated files
+*.pyc
+*.pyo
+*.pyd
+
+# General environment files
+.env
+.env.local
+.env.production
+
+# Logs and system files
+*.log
+npm-debug.log*
+Thumbs.db
+desktop.ini
+.DS_Store

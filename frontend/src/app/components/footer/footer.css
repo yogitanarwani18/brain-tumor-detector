@@ -1,0 +1,27 @@
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #dbeafe;
+  padding: 28px 7%;
+  text-align: center;
+  color: #475569;
+}
+
+.footer h3 {
+  color: #083344;
+  margin-bottom: 8px;
+}
+
+.footer h3 span {
+  color: #0f766e;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer small {
+  display: block;
+  margin-top: 12px;
+  color: #64748b;
+}

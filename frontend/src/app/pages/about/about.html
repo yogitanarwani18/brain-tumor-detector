@@ -1,0 +1,77 @@
+<section class="about-page">
+  <div class="about-header">
+    <span class="about-badge">About Project</span>
+
+    <h1>Brain Tumor Detection Using MRI Images</h1>
+
+    <p>
+      This project classifies brain MRI images using a trained Python deep
+      learning model and displays prediction results with confidence score.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h2>Project Objective</h2>
+      <p>
+        The main objective is to classify brain MRI images into tumor categories
+        and provide fast prediction results in a simple medical-style interface.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h2>Model Classes</h2>
+      <p>
+        The model predicts four categories: Glioma, Meningioma, Pituitary, and
+        No Tumor.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h2>Technology Stack</h2>
+      <p>
+        Angular is used for frontend, Node.js and Express for backend, and
+        Python Flask is used to serve the trained model API.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h2>System Flow</h2>
+      <p>
+        The user uploads an MRI image. The backend validates the image and sends
+        it to the Python model API. The prediction is then shown on the frontend.
+      </p>
+    </div>
+  </div>
+
+  <div class="pipeline-section">
+    <span class="about-badge">Detection Pipeline</span>
+    <h2>How Detection Works</h2>
+
+    <div class="pipeline-grid">
+      <div class="pipeline-card">
+        <div class="step">01</div>
+        <h3>Image Upload</h3>
+        <p>Patient details and MRI image are submitted from Angular frontend.</p>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="step">02</div>
+        <h3>Backend API</h3>
+        <p>Express backend validates the image and forwards it to Python API.</p>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="step">03</div>
+        <h3>Model Prediction</h3>
+        <p>The trained model processes the image and predicts tumor category.</p>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="step">04</div>
+        <h3>Result Output</h3>
+        <p>Prediction result and confidence score are shown to the user.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+<section class="reports-page">
+  <div class="header">
+    <span class="badge">Prediction History</span>
+    <h1>Previous MRI Reports</h1>
+    <p>View all analyzed MRI image predictions from the current session.</p>
+  </div>
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search by patient, prediction or tumor type..."
+      [(ngModel)]="searchText"
+      (input)="searchReports()"
+    />
+  </div>
+
+  <p class="loading" *ngIf="loading">Loading reports...</p>
+
+  <p class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+  <div class="empty" *ngIf="!loading && !errorMessage && filteredReports.length === 0">
+    <h2>No reports found</h2>
+    <p>Upload and analyze an MRI image first, then come back here.</p>
+  </div>
+
+  <div class="reports-grid" *ngIf="!loading && filteredReports.length > 0">
+    <div class="report-card" *ngFor="let report of filteredReports">
+      <img
+  *ngIf="report.imagePreview"
+  [src]="report.imagePreview"
+  alt="MRI Preview"
+  class="report-image"
+/>
+      <div class="top-row">
+        <div>
+          <h2>{{ report.patientName }}</h2>
+          <p>{{ report.gender }} • {{ report.age }} years</p>
+        </div>
+
+        <span class="status">{{ report.confidence }}%</span>
+      </div>
+
+      <div class="result">
+        <span>Prediction</span>
+        <strong>{{ report.prediction }}</strong>
+      </div>
+
+      <div class="result">
+        <span>Tumor Type</span>
+        <strong>{{ report.tumorType }}</strong>
+      </div>
+
+      <div class="date">
+        {{ report.createdAt | date: 'medium' }}
+      </div>
+      <button
+  class="download-btn"
+  (click)="downloadReport(report)">
+  Download PDF
+</button>
+    </div>
+  </div>
+</section>

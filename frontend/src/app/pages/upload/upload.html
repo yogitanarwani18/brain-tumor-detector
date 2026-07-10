@@ -1,0 +1,124 @@
+<section class="upload-page">
+  <div class="upload-content">
+
+    <div class="left-panel">
+      <span class="badge">Brain MRI Tumor Detection</span>
+
+      <h1>Medical MRI Analysis</h1>
+
+      <p>
+        Upload a brain MRI scan and get a tumor prediction using the trained
+        deep learning model.
+      </p>
+
+      <div class="preview-left-card" *ngIf="previewUrl">
+        <h2>MRI Scan Preview</h2>
+        <img [src]="previewUrl" alt="MRI Preview" />
+      </div>
+
+      <div class="info-grid" *ngIf="!previewUrl">
+        <div>
+          <h3>4</h3>
+          <span>Tumor Classes</span>
+        </div>
+
+        <div>
+          <h3>Python</h3>
+          <span>Prediction Model</span>
+        </div>
+
+        <div>
+          <h3>Fast</h3>
+          <span>Scan Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-panel">
+      <form class="form-card" (ngSubmit)="submitForm()" #uploadForm="ngForm">
+        <h2>Patient Details</h2>
+
+        <input
+          type="text"
+          placeholder="Patient Name"
+          [(ngModel)]="patientName"
+          name="patientName"
+        />
+
+        <input
+          type="number"
+          placeholder="Age"
+          [(ngModel)]="age"
+          name="age"
+        />
+
+        <select [(ngModel)]="gender" name="gender">
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label class="upload-box">
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png"
+            (change)="onFileSelect($event)"
+          />
+
+          <div class="upload-icon">+</div>
+
+          <strong>
+            {{ file ? file.name : 'Upload MRI Scan Image' }}
+          </strong>
+
+          <small>Supported formats: JPG, JPEG, PNG</small>
+        </label>
+
+        <button type="submit" [disabled]="loading">
+          {{ loading ? 'Analyzing MRI Scan...' : 'Analyze MRI Scan' }}
+        </button>
+
+        <p class="error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </p>
+
+        <div class="result-card" *ngIf="result">
+          <span class="result-label">Prediction Result</span>
+
+          <h2>{{ result.prediction }}</h2>
+
+          <div class="result-row">
+            <span>Tumor Type</span>
+            <strong>{{ result.tumorType }}</strong>
+          </div>
+
+          <div class="result-row">
+            <span>Confidence</span>
+            <strong>{{ result.confidence }}%</strong>
+          </div>
+
+          <div class="result-row">
+            <span>Patient</span>
+            <strong>{{ result.patientName }}</strong>
+          </div>
+
+          <div class="result-row">
+            <span>Age</span>
+            <strong>{{ result.age }}</strong>
+          </div>
+
+          <div class="result-row">
+            <span>Gender</span>
+            <strong>{{ result.gender }}</strong>
+          </div>
+
+          <button class="reset-btn" type="button" (click)="resetForm()">
+            Analyze Another Image
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
